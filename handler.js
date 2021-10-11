@@ -32,7 +32,7 @@ module.exports.run = async () => {
       if (stocked.html() === null) {
         publishMsg();
       } else {
-        return false;
+        console.log('Not in stock');
       }
     };
   });
