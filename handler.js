@@ -20,7 +20,7 @@ const ps5StockChecker = () => {
           body: 'PS5 in stock! :)',
           from: `${process.env.TWILIO_NUMBER}`,
           to: `${process.env.DD}`
-        }).then(message => console.log(`Message ID: ${message.sid}, Message body: ${message.body}`));
+        }).then(message => console.log(`Message ID: ${message.sid}, STATUS LOG: In stock));
       } else {
         console.log('STATUS LOG: Not in stock');
       }
