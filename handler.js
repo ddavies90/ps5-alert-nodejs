@@ -4,7 +4,6 @@ const cheerio = require('cheerio');
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const client = require('twilio')(accountSid, authToken);
-// const { SNSClient, PublishCommand } = require('@aws-sdk/client-sns');
 
 const ps5StockChecker = () => {
 
@@ -13,14 +12,13 @@ const ps5StockChecker = () => {
       const $ = cheerio.load(html);
 
       const stocked = $('#add-to-cart-button');
-      console.log(stocked.html())
 
       if (stocked.html() !== null) {
         client.messages.create({
           body: 'PS5 in stock! :)',
           from: `${process.env.TWILIO_NUMBER}`,
           to: `${process.env.DD}`
-        }).then(message => console.log(`Message ID: ${message.sid}, STATUS LOG: In stock));
+        }).then(message => console.log(`Message ID: ${message.sid}, STATUS LOG: In stock`));
       } else {
         console.log('STATUS LOG: Not in stock');
       }
