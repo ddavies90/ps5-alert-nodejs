@@ -11,7 +11,6 @@ module.exports = ps5StockChecker = () => {
       const $ = cheerio.load(html);
 
       const stocked = $('#add-to-cart-button');
-      console.log(stocked.html())
 
       if (stocked.html() !== null) {
         client.messages.create({
