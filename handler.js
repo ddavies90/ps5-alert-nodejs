@@ -1,4 +1,3 @@
-require('dotenv').config()
 const request = require('request');
 const cheerio = require('cheerio');
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
